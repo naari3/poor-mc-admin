@@ -1,0 +1,18 @@
+{
+  "builders": [{
+    "type": "amazon-ebs",
+    "region": "ap-northeast-1",
+    "source_ami": "ami-0f9ae750e8274075b",
+    "instance_type": "t2.micro",
+    "ssh_username": "ec2-user",
+    "ssh_pty": "true",
+    "ami_name": "minecraft {{timestamp}}"
+  }],
+  "provisioners":[{
+    "type": "shell",
+    "scripts": [
+      "./scripts/00_mount_volume.sh",
+      "./scripts/01_install_docker.sh"
+    ]
+  }]
+}
