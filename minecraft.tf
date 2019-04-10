@@ -13,7 +13,7 @@ resource "aws_ebs_volume" "minecraft_volume" {
 }
 
 resource "aws_volume_attachment" "ebs_att" {
-  device_name = "/dev/sdb"
+  device_name = "/dev/xvdb"
   volume_id   = "${aws_ebs_volume.minecraft_volume.id}"
   instance_id = "${aws_instance.minecraft_server.id}"
 }
